@@ -1,0 +1,66 @@
+<ion-header no-border>
+  <ion-toolbar color="success">
+    <ion-title>{{titulo}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons color="light" slot="end">
+      <ion-button (click)="crearPost()" [disabled]="titulo == '' || cargando == true" color="light">
+        <ion-label style="font-size: 18px;" text-capitalize>Publicar</ion-label>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    
+    <ion-item>
+      <!--<ion-label position="floating">Titulo</ion-label>-->
+      <ion-textarea [(ngModel)]="titulo" placeholder="¿Qué estás pensando?"></ion-textarea>
+    </ion-item>
+
+    <ion-list>
+      <ion-item>
+        <ion-icon slot="start" name="pin" color="danger"></ion-icon>
+        <ion-label>Estoy Aquí</ion-label>
+        <ion-spinner *ngIf="cargando == true"  name="lines-small"></ion-spinner>
+        <ion-toggle slot="end"
+                    [(ngModel)]="activarPosicion" (ionChange)="getGeolocation()"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+
+  </ion-list>
+
+  <ion-row>
+    <ion-col size="6">
+      <ion-button (click)="mostrar_camara()" color="success" expand="full"
+                  shape="round">
+        <ion-icon slot="start" name="camera"></ion-icon>
+        Cámara
+      </ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button (click)="mostrar_galeria()" color="success" expand="full"
+                  shape="round">
+        <ion-icon slot="start" name="images"></ion-icon>
+        Galería
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="3" *ngFor="let image of imagenes">
+      <ion-card>
+        <img [src]="image">
+      </ion-card>
+    </ion-col>
+  </ion-row>
+<!--<ion-button (click)="subirImagen()">
+  Subir Imagen
+</ion-button>-->
+
+</ion-content>

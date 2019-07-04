@@ -1,0 +1,53 @@
+.top-20{
+    margin-top: 20px;
+}
+
+.mainSlide, .mainSlide ion-slide {
+    width: 100%;
+    height: 100%;
+}
+
+img {
+    width: 120px;
+}
+
+.pick-avatar {
+    width: 80px;
+    opacity: 0.3;
+}
+
+.pick-avatar-seleccionado {
+    transition: opacity 0.5s linear;
+    opacity: 1 !important;
+}
+.welcome-card ion-img {
+    max-height: 150vh;
+    overflow: inherit;
+  }
+  .gui{
+    font-size: 13px;
+    color: rgba(115, 116, 117, 0.596);
+  }
+  .coment{
+    //position: relative;
+    //right: 65px;
+    font-size: 13px;
+    color: rgba(115, 116, 117, 0.596);
+  }
+  .comentar:hover, .guiño:hover{
+    cursor: pointer;
+    transform: scale(1.6)
+  }
+  .comentar:active, .guiño:active{
+    transform: scale(1.6)
+  }
+  .comentar{
+    transform: scale(1.3)
+  }
+  .guiño{
+    transform: scale(1.25)
+  }
+  #slideNohay{
+    width: 100%;
+    height: 100%;
+  }

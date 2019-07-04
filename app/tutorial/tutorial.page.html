@@ -1,0 +1,72 @@
+<!--<ion-content padding>
+
+  <ion-slides pager="true" [options]="slideOpts">
+
+      <ion-slide *ngFor="let slide of slides">
+        <ion-toolbar>
+
+          <ion-buttons slot="end">
+            <ion-button color="success"
+                    (click)="saltar_tutorial()">Saltar Tutorial</ion-button>
+          </ion-buttons>
+
+        </ion-toolbar>
+
+        <img [src]="slide.image" class="slide-image"/>
+        <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+        <p [innerHTML]="slide.description"></p>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-toolbar>
+        </ion-toolbar>
+
+        <img src="../../assets/img/ica-slidebox-img-4.png" class="slide-image"/>
+        <h2 class="slide-title">¿Listo para empezar?</h2>
+
+        <ion-button color="success" (click)="saltar_tutorial()">
+          Registrarme
+          <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        </ion-button>
+
+      </ion-slide>
+
+    </ion-slides>
+
+
+
+
+
+
+
+</ion-content>-->
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color='primary' (click)="saltar_tutorial()" [hidden]="!showSkip">Saltar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-slides scrollbar="md" #slides pager="true">
+    <ion-slide *ngFor="let slide of slidesItems" >
+      <img [src]="slide.image" class="slide-image" />
+      <h2 [innerHTML]="slide.title" class="slide-title"></h2>
+      <p [innerHTML]="slide.description"></p>
+      <!--<ion-button shape="round" color="tertiary" (click)="startApp()">
+        Ingresar Código
+        <ion-icon name="log-in" slot="end"></ion-icon>
+      </ion-button>-->
+    </ion-slide>
+
+    <ion-slide>
+      <img src="../../assets/img/ica-slidebox-img-4.png" class="slide-image" />
+      <h2 class="slide-title">¿Listo para Empezar?</h2>
+      <ion-button shape="round" color="success" fill="outline" (click)="saltar_tutorial()">
+        Empecemos!
+        <ion-icon name="arrow-dropright-circle" slot="end"></ion-icon>
+      </ion-button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

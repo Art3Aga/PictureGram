@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cerrarModal()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher color="success" slot="fixed" (ionRefresh)="recargar($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Actualizar"
+      refreshingSpinner="lines-small"
+      refreshingText="Cargando...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div class="coment" *ngIf="_post.comentarios.length > 0" >
+    <div class="comentarios" *ngFor="let item of _post.comentarios" >
+      <ion-item  mode="ios" lines="none">
+        <!--<ion-icon slot="start" name="contact" color="secondary"></ion-icon>-->
+        <ion-avatar slot="start">
+          <img src="../../assets/imgs/avatars/{{item.avatar}}" />
+        </ion-avatar>
+        <ion-label>
+          <h4 style="font-weight: bold;">{{item.nombre}}</h4>
+        </ion-label>
+      </ion-item>
+      <ion-item mode="ios" id="texto" lines="none">
+        <ion-label style="font-size: 13px;" text-wrap>{{item.comentario}}</ion-label>
+      </ion-item>
+    </div>
+  </div>
+  <div class="no-hay" *ngIf="_post.comentarios.length === 0" >
+    <ion-slides>
+      <ion-slide>
+        <h1>¡No hay Comentarios!</h1>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-item>
+      <ion-textarea slot="start" [(ngModel)]="comentario" placeholder="Escribe un comentario"></ion-textarea>
+      <ion-button slot="end" *ngIf="comentario != ''" (click)="comentar()">
+        Comentar
+      </ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>
